@@ -49,9 +49,10 @@ struct song* insert_order(struct song* songs, struct song* new_song) {
     printf("entered loop\n");
     printf("%d\n", strcmp(new_song->artist, curr_song->artist));
     
+    //ignore
     printf("%d\n", *curr_song->name); //segfault here 
     printf("%d\n", *curr_song->artist); //segfault here 
-    printf("%d\n", *curr_song->next); //segfault here 
+    //printf("%d\n", *curr_song->next); //segfault here 
 
     curr_song = curr_song->next;
     printf("Didn't eff up yet %p\n", curr_song);
@@ -72,7 +73,7 @@ int main() {
   struct song* songlist;
   songlist = (struct song *)calloc(1,sizeof(struct song));
   //struct song* songptr = songlist;
-  songlist->next = NULL;
+  //songlist->next = NULL;
   //int i;
   //songlist[i] = (struct song *)calloc(3 ,sizeof(struct song));
   //printf("%s\n", &songlist);
