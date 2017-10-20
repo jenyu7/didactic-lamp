@@ -53,6 +53,7 @@ struct song* insert_order(struct song* songs, struct song* new_song) {
 
     curr_song = curr_song->next;
   }
+  
   //insert
   struct song *p = curr_song->next;
   curr_song->next =  new_song;
