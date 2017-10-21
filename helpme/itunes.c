@@ -3,8 +3,8 @@
 #include <ctype.h>
 #include <string.h>
 #include "head.h"
-#include "basic.c"
-#include "node.c"
+//#include "basic.c"
+//#include "node.c"
 
 
 int main() {

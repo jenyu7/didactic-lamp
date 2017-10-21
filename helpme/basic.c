@@ -15,7 +15,7 @@ int index_of(char* s) {
   //find the address difference
   int index = ptr - alphabet;
   */
-  s = tolower(*s);
+  *s = tolower(*s);
   return s[0] - 'a';
 }
 
