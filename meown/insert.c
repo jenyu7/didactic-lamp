@@ -5,7 +5,7 @@ struct song* insert_front(struct song* curr_list, struct song* song) {
 }
 
 //inserts a song node in the correct alphabetical order
-struct song* insert_order(struct song* songs, struct song* new_song) {  
+struct song* insert_order(struct song* songs, struct song* new_song) {
   //int ind = index_of(new_song->name[0]);
   //if(!songlist->next
   struct song* curr_song = (struct song *)malloc(sizeof(struct song*));
@@ -13,9 +13,9 @@ struct song* insert_order(struct song* songs, struct song* new_song) {
   //printf("Que pasa\n");
   while (curr_song && strcmp(new_song->artist, curr_song->artist) < 0) {;
     //ignore
-    //printf("%d\n", *curr_song->name); //segfault here 
-    //printf("%d\n", *curr_song->artist); //segfault here 
-    //printf("%d\n", *curr_song->next); //segfault here 
+    //printf("%d\n", *curr_song->name); //segfault here
+    //printf("%d\n", *curr_song->artist); //segfault here
+    //printf("%d\n", *curr_song->next); //segfault here
 
     curr_song = curr_song->next;
   }
@@ -38,7 +38,7 @@ struct song* find(struct song*playlist, char *song_name, char *artist){
 }
 
 //Matches an artist
-struct song*find_song(struct song*playlist, char *artist){
+struct song* find_song(struct song*playlist, char *artist){
   while (playlist){
     if (strcmp(artist, playlist->artist) == 0)
       return playlist;
@@ -46,4 +46,3 @@ struct song*find_song(struct song*playlist, char *artist){
   }
   return 0;
 }
-
