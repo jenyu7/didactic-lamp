@@ -18,13 +18,13 @@ struct song* insert_front(struct song* list, char* name, char* artist)
 
 void insert_order(struct song* lib[], char* name, char* artist)
 {
-  printf("in insert_order\n");
   lib[index_of(artist)] = insert_order_help(lib[index_of(artist)], name, artist);
 }
 
 //inserts a song node in the correct alphabetical order
 struct song* insert_order_help(struct song* list, char* name, char* artist)
-{  
+{
+  printf("inside insert_order_help\n");
   struct song *first = list; //pointer to beginning of list
   //if list doesn't have any songs, make a new song node
   if (!list)
