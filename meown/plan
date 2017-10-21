@@ -1,0 +1,14 @@
+To add a song:
+Get first letter of artist name
+Find letter in immutable string of all letters in alphabet
+Using this index, get linked list from general array corresponding with letter
+Add song to the linked list in the correct alphabetical order(set name and artist)
+
+To search for a song:
+Same process as adding
+Look for matching title/artist in the linked list
+Return the node
+
+To search for an artist:
+Same process as adding
+Return the array of nodes
