@@ -1,3 +1,9 @@
+//add headers!!
+
+#include <ctype.h>
+#include <stdio.h>
+#include "head.h"
+
 //finds the index of a letter in the alphabet
 int index_of(char* s) {
   /*
@@ -9,7 +15,7 @@ int index_of(char* s) {
   //find the address difference
   int index = ptr - alphabet;
   */
-  s = tolower(s);
+  s = tolower(*s);
   return s[0] - 'a';
 }
 
@@ -25,7 +31,7 @@ void print_lib(struct song* lib[]) {
 	//printf("bug\n");
 	list = list->next;
       }
-    i ++;
+    i++;
   }
   printf("NULL\n");
 }

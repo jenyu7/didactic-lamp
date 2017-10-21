@@ -1,4 +1,16 @@
 //inserts a song node at the front of a linked list
+
+
+//add headers!!
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "head.h"
+
+//triggered by this bracket format
+
+
 struct song* insert_front(struct song* list, char* name, char* artist)
 {
   return create_node(list, name, artist);
