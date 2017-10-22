@@ -2,6 +2,8 @@
 
 #include <ctype.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "head.h"
 
 //finds the index of a letter in the alphabet
@@ -12,7 +14,7 @@ int index_of(char* s) {
   char *ptr = strchr(alphabet, tolower(*s));
 
   //find the address difference
-  int index = ptr - alphabet;
+  return ptr - alphabet;
 }
 
 void print_song(struct song* song) {
@@ -43,23 +45,21 @@ void print_lib(struct song* lib[]) {
   }
 }
 
-int list_length(struct song* list) {
-  int count = 0;
-  while (list) {
-    count++;
-    list = list->next;
-  }
-  return count;
+//bad name
+void print_first_char(struct song* lib[], char* first_char) {
+  print_list(lib[index_of(first_char)]);
 }
 
-struct song* song_at(struct song* list, int n) {
-  int count = 0;
-  while(count != n) {
-    list = list->next;
-    count++;
-  }
-  return list;
-}
+// void print_artist(struct song* lib[], char* artist) {
+//   //respective alphabet list
+//   struct song* current = lib[index_of(artist)];
+//   while (current) {
+//     if (strcmp(current->artist, artist)) {
+//
+//     }
+//   }
+// }
+
 
 //prints songlist after finding a specified artist
 //NOTE: Does not print the rest of the library, just the ll in the letter
@@ -82,7 +82,7 @@ void print_artist_help(struct song* list, char * artist)
 	}
       end = end->next;
     }
-  
+
   print_list_end(list, end);
 }
 
@@ -91,30 +91,20 @@ void print_letter(struct song* lib[], char* letter)
   print_list(lib[index_of(letter)]);
 }
 
-void shuffle_list(struct song* list) {
-  struct song* current = (struct song*)malloc(sizeof(struct song));
-  srand(time(NULL));
-  //-1 because index 3 would be null and we want it to print at least one
-  int i = rand() % list_length(list);
+struct song* song_at(struct song* list, int n) {
   int count = 0;
-  while(count < list_length(list) && current) {
-    current = song_at(list, i);
-    print_song(song_at(list, i));
-    i = rand() % list_length(list);
+  while(count != n) {
+    list = list->next;
     count++;
   }
+  return list;
 }
 
-//doesn't work
-void shuffle_lib(struct song* lib[]) {
-  srand(time(NULL));
-  int i = rand() % 2;
-  int prev = -1;
-  while (i != 2) {
-    shuffle_list(lib[i]);
-    //27 because lib[26] is null and we need that to stop the loop
-    prev = i;
-    i = rand() % 3;
-    printf("@@@@@@@@@@@ i = %d\n", i);
+int list_length(struct song* list) {
+  int count = 0;
+  while (list) {
+    count++;
+    list = list->next;
   }
+  return count;
 }

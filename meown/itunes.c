@@ -7,7 +7,8 @@
 
 int main() {
   printf("--------Initializing Song Library--------\n\n");
-  struct song* songlib [26] = {0};
+  //27 because we want the last one to be null
+  struct song* songlib [27] = {0};
 
   print_lib(songlib);
   printf("\n--------Adding Songs--------\n\n");
@@ -36,7 +37,10 @@ int main() {
 
   printf("\n\nFinding entries in 'T' index\n\n");
   print_letter(songlib, "t");
-  
-  
+
+  printf("\n--------Everyday I'm Shuffling--------\n\n");
+  shuffle_lib(songlib);
+  // print_song(song_at(songlib[1],0));
+
   return 0;
 }
