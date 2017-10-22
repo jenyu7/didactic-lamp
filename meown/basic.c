@@ -13,11 +13,6 @@ int index_of(char* s) {
 
   //find the address difference
   int index = ptr - alphabet;
-  /*
-  s = (char*)putchar(tolower((int)s));
-  printf("%d\n", s[0]-'a');
-  return s[0] - 'a';
-  */
 }
 
 void print_song(struct song* song) {
