@@ -22,7 +22,7 @@ int main() {
   insert_order(songlib, "Helena Beat", "Foster the People");
   insert_order(songlib, "Countdown", "Beyonce");
   insert_order(songlib, "1979", "The Smashing Pumpkins");
-  print_lib(songlib);
+  //print_lib(songlib);
   insert_order(songlib, "Pink Lemonade", "The Wombats");
 
   print_lib(songlib);

@@ -33,43 +33,18 @@ struct song* insert_order_help(struct song* list, char* name, char* artist)
       printf("=====\n");
       return create_node(0, name, artist);
     }
-  printf("%s\n", list->next->artist);
   while(list->next && strcmp(artist, list->next->artist) > 0)
     {
       printf("comp artists\n");
       list = list->next;
     }
-  if (!list->next && strcmp(artist, list->artist) !=0)
+  if (!list->next && strcmp(artist, list->artist) != 0)
     {
-      if (strcmp(artist, list->artist) > 0)
-	{
-	  printf("artist:adding at end of node\n");
-	  list->next = create_node(0, name, artist);
-	  printf("=====\n");
-	  return first;
-	}
-      printf("artist:adding at front of node\n");
-      first = create_node(list, name, artist);
+      printf("ran out of artists\n");
+      list->next = create_node(0, name, artist);
       printf("=====\n");
       return first;
     }
-  if (strcmp(artist, list->next->artist) != 0)
-    {
-      if (strcmp(artist, list->artist) < 0)
-	{
-	  printf("artist:adding before first node\n");
-	  first = create_node(list, name, artist);
-	  printf("=====\n");
-	  return first;
-	}
-      printf("artist:adding in between nodes\n");
-      struct song* tmp = list->next;
-      list->next = create_node(tmp, name, artist);
-      printf("=====\n");
-      return first;
-      
-    }
-  printf("comparing names\n");
   while(list->next && strcmp(name, list->next->name) > 0)
     {
       printf("comp names\n");
@@ -126,3 +101,38 @@ struct song* find_artist_help(struct song*playlist, char *artist){
   return playlist;
 }
 
+
+
+//trash pile
+ /*
+  if (!list->next && strcmp(artist, list->artist) !=0)
+    {
+      if (strcmp(artist, list->artist) > 0)
+	{
+	  printf("artist:adding at end of node\n");
+	  list->next = create_node(0, name, artist);
+	  printf("=====\n");
+	  return first;
+	}
+      printf("artist:adding at front of node\n");
+      first = create_node(list, name, artist);
+      printf("=====\n");
+      return first;
+    }
+  if (strcmp(artist, list->next->artist) != 0)
+    {
+      if (strcmp(artist, list->artist) < 0)
+	{
+	  printf("artist:adding before first node\n");
+	  first = create_node(list, name, artist);
+	  printf("=====\n");
+	  return first;
+	}
+      printf("artist:adding in between nodes\n");
+      struct song* tmp = list->next;
+      list->next = create_node(tmp, name, artist);
+      printf("=====\n");
+      return first;
+      
+    }
+  */
