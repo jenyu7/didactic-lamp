@@ -20,9 +20,18 @@ void print_song(struct song* song) {
 }
 
 void print_list(struct song* list) {
-  while(list) {
-    print_song(list);
-    list = list->next;
+  print_list_end(list, 0);
+}
+
+void print_list_end(struct song* list, struct song* end)
+{
+  while(list != end) {
+    if (!list){}
+    else
+      {
+	print_song(list);
+	list = list->next;
+      }
   }
 }
 
@@ -50,6 +59,36 @@ struct song* song_at(struct song* list, int n) {
     count++;
   }
   return list;
+}
+
+//prints songlist after finding a specified artist
+//NOTE: Does not print the rest of the library, just the ll in the letter
+//the artist's name starts with
+void print_artist(struct song* lib[], char* artist)
+{
+  print_artist_help(find_artist(lib, artist), artist);
+}
+
+void print_artist_help(struct song* list, char * artist)
+{
+  struct song* end = create_node(list->next, list->name, list->artist);
+  //printf("%p, %p\n", end, list);
+  while(end)
+    {
+      if (strcmp(artist, end->artist)!=0)
+	{
+	  end->next = 0;
+	  break;
+	}
+      end = end->next;
+    }
+  
+  print_list_end(list, end);
+}
+
+void print_letter(struct song* lib[], char* letter)
+{
+  print_list(lib[index_of(letter)]);
 }
 
 void shuffle_list(struct song* list) {

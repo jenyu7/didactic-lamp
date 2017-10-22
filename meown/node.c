@@ -1,6 +1,3 @@
-//inserts a song node at the front of a linked list
-
-
 //add headers!!
 
 #include <stdio.h>
@@ -8,21 +5,15 @@
 #include <string.h>
 #include "head.h"
 
-//triggered by this bracket format
-
-
-struct song* insert_front(struct song* list, char* name, char* artist)
-{
-  return create_node(list, name, artist);
-}
-
+//WRAPPER: Inserts songs in alphabetical order
+//arranges by artists first, then songs
 void insert_order(struct song* lib[], char* name, char* artist)
 {
   //printf("%d\n", index_of(artist));
   lib[index_of(artist)] = insert_order_help(lib[index_of(artist)], name, artist);
 }
 
-//inserts a song node in the correct alphabetical order
+//HELPER: inserts a song node in the correct alphabetical order
 struct song* insert_order_help(struct song* list, char* name, char* artist)
 {
   //printf("=====inserting %s by %s=====\n", name, artist);
@@ -81,7 +72,7 @@ struct song* insert_order_help(struct song* list, char* name, char* artist)
   return first;
 }
 
-//creates a song node
+//creates a song node, works like insert_front
 struct song* create_node(struct song* next, char* name, char* artist)
 {
   struct song* ret = (struct song*)malloc(sizeof(struct song));
@@ -92,22 +83,16 @@ struct song* create_node(struct song* next, char* name, char* artist)
 }
 
 
-void find_artist(struct song* lib[], char* artist)
-{
-  print_list(find_artist_help(lib[index_of(artist)], artist));
-}
-
-//Matches an artist
-struct song* find_artist_help(struct song* playlist, char *artist){
+//Returns a pointer to the artist being searched
+struct song* find_artist(struct song* lib[], char *artist){
+  struct song* playlist = lib[index_of(artist)];
   while (playlist){
     if (strcmp(artist, playlist->artist) == 0)
       {
 	return playlist;
       }
-    //print_song(playlist);
     playlist = playlist->next;
   }
-  printf("-------------------\n");
   return playlist;
 }
 
