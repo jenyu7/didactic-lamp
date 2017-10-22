@@ -38,9 +38,23 @@ int main() {
   printf("\n\nFinding entries in 'T' index\n\n");
   print_letter(songlib, "t");
 
-  printf("\n--------Everyday I'm Shuffling--------\n\n");
+  printf("\n\n--------Everyday I'm Shuffling--------\n\n");
   shuffle_lib(songlib);
-  // print_song(song_at(songlib[1],0));
+
+  printf("\n\nRemoving 'Houdini' by Foster the People\n\n");
+  remove_node(songlib, "Foster the People", "Houdini");
+  print_lib(songlib);
+
+  printf("\n\nRemoving 'Countdown' by Beyonce\n\n");
+  remove_node(songlib, "Beyonce", "Countdown");
+  print_lib(songlib);
+
+ 
+  printf("\n\nRemoving all songs from library\n\n");
+  free_lib(songlib);
+  print_lib(songlib);
+
+  
 
   return 0;
 }

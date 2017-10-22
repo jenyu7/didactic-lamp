@@ -24,4 +24,7 @@ struct song* create_node(struct song* next, char* name, char* artist);
 struct song* find_artist(struct song* lib[], char *artist);
 void shuffle_list(struct song* list);
 void shuffle_lib(struct song* lib[]);
-
+void remove_node(struct song* lib[], char* artist, char* name);
+struct song* remove_node_help(struct song* head, char* artist, char* name);
+void free_lib(struct song* lib[]);
+struct song* free_lib_help(struct song *ptr);
